@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso - Pokemart</title>
+    <link rel="icon" href="/img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/access.css">
+</head>
+<body>
+    <audio src="/sound/a-button.mp3" autoplay="true"></audio>
+    <header>
+        <section id="header-top">
+            <a id="main-logo" href="/">
+                <img src="/img/logo.png" alt="Logo">
+            </a>
+        </section>
+        <nav id="header-bot">
+            <a href="/product" class="header-link">
+                <img src="/img/escaperope-icon.png" alt="Icono Cuerda Huida" class="nav-icon">
+                <p class="nav-title">Objetos</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/xattack-icon.png" alt="Icono Ataque X" class="nav-icon">
+                <p class="nav-title">Combate</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/potion-icon.png" alt="Icono Pocion" class="nav-icon">
+                <p class="nav-title">Botiquin</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/pokeball-icon.png" alt="Icono Poke Ball" class="nav-icon">
+                <p class="nav-title">Captura</p>
+            </a>
+            <audio id="ambient" src="/sound/pokemon-center.ogg" loop="true" controls controlsList="nodownload noplaybackrate"></audio>
+        </nav>
+    </header>
+    <main>
+        <article id="main-box">
+            <input type="radio" name="signin" id="signin-back">
+            <input type="radio" name="signup" id="signup-back">
+            <input type="radio" name="signin" id="signin">
+            <input type="radio" name="signup" id="signup">
+            <label for="signin" id="signin-label">
+                Ya tienes una cuenta?
+            </label>
+            <label for="signup" id="signup-label">
+                Aún no formas parte?
+            </label>
+            <label for="signup-back" id="tengo-cuenta" class="back-buttons"><i class="fa-solid fa-caret-left"></i> Volver</label>
+            <label for="signin-back" id="no-cuenta" class="back-buttons">Volver <i class="fa-solid fa-caret-right"></i></label>
+            <section id="box">
+                <form action="/login" method="post" id="login-form">
+                    <h4>Ingreso</h4>
+                    <input type="email" id="login-email" placeholder="Correo electrónico">
+                    <input type="password" id="login-password" placeholder="Contraseña">
+                    <section class="button-box"><button>Entrar</button></section>
+                </form>
+                <form action="/register" method="post" id="register-form">
+                    <h4>Registro</h4>
+                    <input type="text" name="username" id="username" placeholder="Nombre de Usuario">
+                    <input type="email" name="email" id="email" placeholder="Correo">
+                    <input type="email" name="emailConf" id="emailConf" placeholder="Repite tu Correo">
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirma la Contraseña">
+                    <h6>Elige tu avatar</h6>
+                    <ul id="avatar-selector">
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar1"><label for="avatar1" class="avatar"><img src="/img/avatar/m1.png" alt="avatar1" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar2"><label for="avatar2" class="avatar"><img src="/img/avatar/m2.png" alt="avatar2" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar3"><label for="avatar3" class="avatar"><img src="/img/avatar/m3.png" alt="avatar3" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar4"><label for="avatar4" class="avatar"><img src="/img/avatar/m4.png" alt="avatar4" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar5"><label for="avatar5" class="avatar"><img src="/img/avatar/m5.png" alt="avatar5" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar6"><label for="avatar6" class="avatar"><img src="/img/avatar/f1.png" alt="avatar6" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar7"><label for="avatar7" class="avatar"><img src="/img/avatar/f2.png" alt="avatar7" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar8"><label for="avatar8" class="avatar"><img src="/img/avatar/f3.png" alt="avatar8" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar9"><label for="avatar9" class="avatar"><img src="/img/avatar/f4.png" alt="avatar9" class="avatar-img"></label></li>
+                        <li class="avatar-item"><input type="radio" name="avatar" id="avatar10"><label for="avatar10" class="avatar"><img src="/img/avatar/f5.png" alt="avatar10" class="avatar-img"></label></li>
+                    </ul>
+                    <section class="button-sect">
+                        <button>Registrarse</button>
+                        <button type="reset">Limpiar</button>
+                    </section>
+                </form>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <a href="#">Preguntas Frecuentes</a>
+            <a href="#">Contacto</a>
+            <a href="#">Terminos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+        </nav>
+        <p>Página creada por Aylen Martinez</p>
+    </footer>
+</body>
+</html>

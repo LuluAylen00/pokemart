@@ -20,5 +20,6 @@ Tampoco se posee una referencia del estílo esperado de la página, se trató de
 ## Diseño (Click en cada título)
 ### [Wireframes](./design/wireframes/)
 ### [Paleta de colores](./design/Paleta.png)
-### Fuentes
-##### Rubik (400) para todo el sitio
+### Fuentes (Se hallan en ./design/fonts/)
+##### PKMN RBYGSC para los campos de entrada de texto (FontStruct)
+##### Pokemon DS Font para todo el sitio (TheFontsMagazine)

@@ -1,0 +1,83 @@
+/* Animaciones para el access -> Crecimiento y decrecimiento de los formularios */
+@keyframes width30to70 {
+    from { width: 30%; } to { width: 70%; }
+}
+@keyframes width70to30 {
+    from { width: 70%; } to { width: 30%; }
+}
+
+/* Animaciones para el access -> Oscurecimiento e Iluminación del color de fondo */
+@keyframes bgcDarktoLight {
+    from { background-color: #0892A2; } to { background-color: #38CDD8; }
+}
+@keyframes bgcLighttoDark { from { background-color: #38CDD8; } to { background-color: #0892A2; }
+}
+
+/* Animaciones generales -> Opacidad de 0 a 100 y viceversa */
+@keyframes opacity0to100 {
+    from { opacity: 0%; } to { opacity: 100%; }
+}
+@keyframes opacity100to0 { 
+    from { opacity: 100%; } to { opacity: 0%; }
+}
+
+/* Animaciones para el access -> Agrandamiento de los formularios */
+@keyframes width0to90 {
+    from {  width: 0%; } to { width: 90%; }
+}
+
+/* Animaciones para el access -> Display de none a flex y viceversa */
+@keyframes appear {
+    from { display: none; } to { display: inline; }
+}
+@keyframes disappear {
+    from { display: inline; } to { display: none; }
+}
+
+/* Animaciones generales -> Width 0 a 100 y viceversa */
+@keyframes width0to100 {
+    from { width: 0%; } to { width: 100%; }
+}
+@keyframes width100to0 { 
+    from { width: 100%; } to { width: 0%; }
+}
+
+/* Animaciones generales -> Height 0 a 100 y viceversa */
+@keyframes height0to100 {
+    from { height: 0%; } to { height: 100% }
+}
+@keyframes height100to0 {
+    from { height: 100%; } to { height: 0% }
+}
+
+@keyframes height50to80 {
+    from { height: 50vh; } to { height: 105vh }
+}
+@keyframes height80to50 {
+    from { height: 105vh; } to { height: 50vh }
+}
+
+@keyframes height50to90 {
+    from { height: 50vh; } to { height: 120vh }
+}
+@keyframes height90to50 {
+    from { height: 120vh; } to { height: 50vh }
+}
+
+@keyframes height50to100 {
+    from { height: 50vh; } to { height: 135vh }
+}
+@keyframes height100to50 {
+    from { height: 120vh; } to { height: 50vh }
+}
+
+@keyframes font0to1 {
+    from { font-size: 0rem; } to { font-size: 1rem; }
+}
+
+@keyframes zm1to1{
+    from {z-index: -1;} to { z-index: 2}
+}
+@keyframes z1tom1{
+    from {z-index: 2;} to { z-index: -1}
+}

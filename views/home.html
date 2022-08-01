@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Pokemart</title>
+    <link rel="icon" href="/img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <audio src="/sound/a-button.mp3" autoplay="true"></audio>
+    <header>
+        <section id="header-top">
+            <a href="/cart" id="cart-icon">
+                <i class="fa-solid fa-shopping-cart"></i>
+            </a>
+            <a id="main-logo" href="/">
+                <img src="/img/logo.png" alt="Logo">
+            </a>
+            <a href="/access" id="login-button">
+                <i id="user-icon" class="fa-solid fa-user"></i>
+                <article id="login-laptop">
+                    <i id="user-icon-laptop" class="fa-solid fa-user"></i>
+                    <p>Ingresar</p>
+                </article>
+            </a>
+        </section>
+        <nav id="header-bot">
+            <a href="/product" class="header-link">
+                <img src="/img/escaperope-icon.png" alt="Icono Cuerda Huida" class="nav-icon">
+                <p class="nav-title">Objetos</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/xattack-icon.png" alt="Icono Ataque X" class="nav-icon">
+                <p class="nav-title">Combate</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/potion-icon.png" alt="Icono Pocion" class="nav-icon">
+                <p class="nav-title">Botiquin</p>
+            </a>
+            <a href="/product" class="header-link">
+                <img src="/img/pokeball-icon.png" alt="Icono Poke Ball" class="nav-icon">
+                <p class="nav-title">Captura</p>
+            </a>
+            <audio id="ambient" src="/sound/pokemon-center.ogg" loop="true" controls controlsList="nodownload noplaybackrate"></audio>
+        </nav>
+    </header>
+    <main>
+        <section id="main-banner">
+            <h2>Bienvenido al PokeMart!</h2>
+            <img src="/img/indexbanner2.png" alt="">
+        </section>
+        <ul>
+            <li id="st-banner" class="main-cats cats-row banner">
+                <section id="st-left" class="banner-text">
+                    <h1>¿Necesitas restaurar tu equipo?</h1>
+                    <p>Busca los artículos que necesites en el Botiquín!</p>
+                    <button>Botiquín</button>
+                </section>
+                <picture id="st-right" class="banner-img">
+                    <img src="/img/potions.png" alt="">
+                </picture>
+            </li>
+            <li id="nd-banner" class="banner main-cats cats-reverse">
+                <picture id="nd-left" class="banner-img">
+                    <img src="/img/balls.png" alt="">
+                </picture>
+                <section id="nd-right" class="banner-text">
+                    <h1>¿Buscas ampliar tu colección?</h1>
+                    <p>Visita la sección Captura!</p>
+                    <button>Captura</button>
+                </section>
+            </li>
+            <li id="rd-banner" class="banner main-cats cats-row">
+                <section id="rd-left" class="banner-text">
+                    <h1>Repelentes, piedras evolutivas y demás cosas..</h1>
+                    <p>Todo en la sección Objetos!</p>
+                    <button>Objetos</button>
+                </section>
+                <picture id="rd-right" class="banner-img">
+                    <img src="/img/stones.png" alt="">
+                </picture>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <nav>
+            <a href="#">Preguntas Frecuentes</a>
+            <a href="#">Contacto</a>
+            <a href="#">Terminos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+        </nav>
+        <p>Página creada por Aylen Martinez</p>
+    </footer>
+</body>
+</html>
