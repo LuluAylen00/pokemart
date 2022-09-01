@@ -1,0 +1,51 @@
+[
+    {
+        "id": 0,
+        "name": "Pokeball",
+        "description": "Dispositivo con diseño capsular que atrapa Pokemon salvajes. Se lanza como una bola contra el blanco",
+        "category": "Captura",
+        "gen": 1
+    },
+    {
+        "id": 1,
+        "name": "Superball",
+        "description": "",
+        "category": "Captura",
+        "gen": 1
+    },
+    {
+        "id": 2,
+        "name": "Ultraball",
+        "description": "",
+        "category": "Captura",
+        "gen": 1
+    },
+    {
+        "id": 3,
+        "name": "Poción",
+        "description": "",
+        "category": "Botiquín",
+        "gen": 1
+    },
+    {
+        "id": 4,
+        "name": "Superpoción",
+        "description": "",
+        "category": "Botiquín",
+        "gen": 1
+    },
+    {
+        "id": 5,
+        "name": "Revivir",
+        "description": "",
+        "category": "Botiquín",
+        "gen": 1
+    },
+    {
+        "id": 6,
+        "name": "Cuerda Huida",
+        "description": "",
+        "category": "Objetos",
+        "gen": 1
+    }
+]
