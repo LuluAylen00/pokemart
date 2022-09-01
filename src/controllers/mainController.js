@@ -5,8 +5,5 @@ module.exports = {
     },
     cart: (req, res) => { // Vista del Sprint 3 con partials
         return res.render("cart"); // Renderizo el ejs (res.render) de mi carrito para que se vea en el navegador
-    },
-    access: (req, res) => { // Vista del Sprint 3 con partials
-        return res.render("users/access"); // Renderizo el ejs (res.render) de mi login/registro para que se vea en el navegador
     }
 }

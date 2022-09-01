@@ -31,6 +31,10 @@ const productRoutes = require('./routes/productRoutes');
 // Pero con una leve diferencia
 app.use("/products", productRoutes);
 
-// De la misma forma traemos las rutas antiguas
+// De la misma forma traemos las de usuarios
+const userRoutes = require('./routes/userRoutes');
+app.use(userRoutes);
+
+// Y las rutas antiguas
 const oldRoutes = require('./routes/oldRoutes');
 app.use("/old",oldRoutes);
