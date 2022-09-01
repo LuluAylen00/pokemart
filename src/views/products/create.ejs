@@ -6,7 +6,7 @@
     <main>
         <article id="main-box">
             <section id="box">
-                <form action="/products/save" method="post" id="create-product-form">
+                <form action="/products/save" method="post" id="create-product-form" enctype="multipart/form-data">
                     <h4>Añadir un nuevo producto</h4>
                     <input type="text" name="name" id="name" placeholder="Nombre del producto">
                     <textarea name="description" id="description" cols="30" rows="6" style="resize: none;" placeholder="Descripción"></textarea>
@@ -25,6 +25,8 @@
                         <option value="4">4 - HGSS</option>
                         <option value="5">5 - BW</option>
                     </select>
+                    <h3 class="select-label">Imagen</h3>
+                    <input type="file" name="image" id="image">
                     <section class="button-sect">
                         <button type="submit">Enviar</button>
                         <button type="reset">Limpiar</button>

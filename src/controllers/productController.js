@@ -1,3 +1,6 @@
+const model = require('../models/productModel');
+const productModel = require('../models/productModel')
+
 module.exports = {
     // Controladores nuevos (Sprint 3 en adelante)
     create: (req, res) => {
@@ -7,7 +10,11 @@ module.exports = {
         };
         res.render("products/create", { data });
     },
-    save: (req, res) => {},
+    save: (req, res) => {
+        let product = model.generate(req.body, req.file);
+        model.write(product);
+        return res.redirect("/products");
+    },
     all: (req, res) => {
         let data = {
             style: "product",
