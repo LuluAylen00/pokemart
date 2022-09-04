@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+a:-webkit-any-link {
+    color: inherit;
+}
+
 :root {
     --celeste: #38CDD8;
     --azul: #0892A2;
@@ -40,6 +44,16 @@ audio#ambient::-webkit-media-controls-panel {
     display: flex;
     justify-content: flex-end;
     padding: 0;
+}
+
+.blue-border {
+    border: 25px solid transparent;
+    border-image: url(../img/border-blue.png) 30 round;
+}
+
+.black-border {
+    border: 25px solid transparent;
+    border-image: url(../img/border.png) 30 round;
 }
 
 audio#ambient::-webkit-media-controls-mute-button, audio#ambient::-webkit-media-controls-volume-slider-container, audio#ambient::-webkit-media-controls-volume-slider {display: none;}

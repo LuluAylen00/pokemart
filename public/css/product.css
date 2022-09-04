@@ -32,6 +32,10 @@ main {
     border: 2px solid var(--azul);
 }
 
+#main-box #product-box {
+    width:100%;
+}
+
 #main-box picture img {
     max-height: 90%;
     width: 30vw;
@@ -223,7 +227,7 @@ input[type="radio"]#buy:not(:checked) ~ #post-buy {
         flex-grow: 8;
     }
     #main-box picture img {
-        width: unset;
+        width: 20vw;
     }
     #product-description {
         font-size: 1.5rem;

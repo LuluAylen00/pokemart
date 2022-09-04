@@ -25,11 +25,12 @@ const upload = multer({storage:dest});
 */
 app.get('/create',productController.create);
 app.get('/',productController.all);
-app.get('/:id', productController.show);
+app.get('/:category', productController.category);
+app.get('/detail/:id', productController.show);
 app.get('/edit/:id',productController.edit);
 
 app.post('/save', [upload.single("image")], productController.save);
-app.post('/update', [upload.single("image")], productController.update);
-app.post('/erase', productController.erase);
+app.put('/update/:id', [upload.single("image")], productController.update);
+app.delete('/erase/:id', productController.erase);
 
 module.exports = app; // Exportamos la constante donde guardamos la ejecución del método Router

@@ -103,6 +103,18 @@ header {
     z-index: 9;
 }
 
+#create-link {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
 @media screen and (min-width:768px) { /* Tamaño tablet */
     header #header-top #cart-icon, header #header-top #user-icon {
         font-size: 1.7rem;

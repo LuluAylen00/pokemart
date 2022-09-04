@@ -79,7 +79,7 @@ article#main-box, article > #box {
 }
 
 /* Formato para los inputs de ambos formularios */
-#create-product-form input[type="text"], #create-product-form textarea {
+#create-product-form input[type="text"], #create-product-form input[type="number"], #create-product-form textarea {
     margin: 10px 0;
     padding: 5px;
     width: 60%;

@@ -4,6 +4,7 @@
     "name": "Pokeball",
     "description": "Dispositivo con diseño capsular que atrapa Pokemon salvajes. Se lanza como una bola contra el blanco",
     "category": "Captura",
+    "price": 200,
     "image": "pokeball.png",
     "gen": 1
   },
@@ -12,6 +13,7 @@
     "name": "Superball",
     "description": "",
     "category": "Captura",
+    "price": 600,
     "image": "superball.png",
     "gen": 1
   },
@@ -20,6 +22,7 @@
     "name": "Ultraball",
     "description": "",
     "category": "Captura",
+    "price": 1200,
     "image": "ultraball.png",
     "gen": 1
   },
@@ -28,6 +31,7 @@
     "name": "Poción",
     "description": "",
     "category": "Botiquín",
+    "price": 200,
     "image": "potion.png",
     "gen": 1
   },
@@ -36,6 +40,7 @@
     "name": "Superpoción",
     "description": "",
     "category": "Botiquín",
+    "price": 500,
     "image": "superpotion.png",
     "gen": 1
   },
@@ -44,6 +49,7 @@
     "name": "Revivir",
     "description": "",
     "category": "Botiquín",
+    "price": 750,
     "image": "revive.png",
     "gen": 1
   },
@@ -52,7 +58,17 @@
     "name": "Cuerda Huida",
     "description": "",
     "category": "Objetos",
+    "price": 350,
     "image": "escaperope.png",
+    "gen": 1
+  },
+  {
+    "id": 8,
+    "name": "Antidoto",
+    "description": "",
+    "category": "Botiquín",
+    "price": 250,
+    "image": "antidote.png",
     "gen": 1
   }
 ]

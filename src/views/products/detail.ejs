@@ -5,12 +5,12 @@
     <%- include("../partials/header") %> 
     <main>
         <section id="main-box">
-            <picture><img src="/img/items/pokeball.png" alt=""></picture>
+            <picture><img src="/img/items/<%= data.thisOne.image %>" alt=""></picture>
             <article id="product-box">
-                <h2 id="product-title">PokeBall</h2>
-                <h4 id="product-category">Categoría: <i>Captura</i></h4>
-                <p id="product-description">Dispositivo con diseño capsular que atrapa Pokemon salvajes. Se lanza como una bola contra el blanco</p>
-                <h3 id="product-price">$200 <i>c/u</i></h3>
+                <h2 id="product-title"><%= data.thisOne.name %></h2>
+                <h4 id="product-category">Categoría: <i><%= data.thisOne.category %></i></h4>
+                <p id="product-description"><%= data.thisOne.description %></p>
+                <h3 id="product-price">$<%= data.thisOne.price %> <i>c/u</i></h3>
                 <input type="radio" name="buy" id="buy">
                 <input type="radio" name="buy" id="cancel-buy">
                 <label class="buy-button" id="mobile-buy-button" for="buy">Comprar</label>
@@ -26,64 +26,26 @@
                     <button>Comprar</button>
                     <label for="cancel-buy">Cancelar</label>
                 </section>
+                <div>
+                    <a href="/products/edit/<%= data.thisOne.id %>">Editar</a>
+                    <form action="/products/erase/<%= data.thisOne.id %>?m=DELETE" method="POST"><button type="submit">Eliminar</button></form>
+                </div>
             </article>
         </section>
         <section id="article-box">
             <h2>Productos relacionados</h2>
             <ul id="related-ul">
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/superball.png" alt="Superball">
-                        <article>
-                            <h4>Superball</h4>
-                            <h5>$600</h5>
-                        </article>
-                    </a>
-                </li>
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/ultraball.png" alt="Ultraball">
-                        <article>
-                            <h4>Ultraball</h4>
-                            <h5>$1200</h5>
-                        </article>
-                    </a>
-                </li>
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/potion.png" alt="Potion">
-                        <article>
-                            <h4>Pocion</h4>
-                            <h5>$200</h5>
-                        </article>
-                    </a></li>
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/superpotion.png" alt="Superpotion">
-                        <article>
-                            <h4>Superpocion</h4>
-                            <h5>$500</h5>
-                        </article>
-                    </a>
-                </li>
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/revive.png" alt="Revive">
-                        <article>
-                            <h4>Revivir</h4>
-                            <h5>$750</h5>
-                        </article>
-                    </a>
-                </li>
-                <li class="related-li">
-                    <a href="/product">
-                        <img src="/img/items/escaperope.png" alt="Escaperope">
-                        <article>
-                            <h4>Cuerda Huida</h4>
-                            <h5>$350</h5>
-                        </article>
-                    </a>
-                </li>
+                <% for( let i = 0; i < data.products.length; i++ ) { %>
+                    <li class="related-li">
+                        <a href="/products/detail/<%= data.products[i].id %>">
+                            <img src="/img/items/<%= data.products[i].image %>" alt="Superball">
+                            <article>
+                                <h4><%= data.products[i].name %></h4>
+                                <h5>$<%= data.products[i].price %></h5>
+                            </article>
+                        </a>
+                    </li>
+                <% } %>
             </ul>
         </section>
     </main>
