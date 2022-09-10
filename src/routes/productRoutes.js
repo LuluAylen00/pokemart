@@ -24,8 +24,9 @@ const upload = multer({storage:dest});
     Debido a que en el entry point usamos (app.use) sobre este archivo de rutas con la ruta predefinida como "/products/", esa definida se concatena con el primer parámetro de cualquier ruta que especifiquemos en este archivo, por lo que un "/" de aquí sería "/products" en el navegador
 */
 app.get('/create',productController.create);
-app.get('/',productController.all);
-app.get('/:category', productController.category);
+
+app.get('/:category?', productController.category);
+
 app.get('/detail/:id', productController.show);
 app.get('/edit/:id',productController.edit);
 

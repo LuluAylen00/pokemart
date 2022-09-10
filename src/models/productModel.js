@@ -28,6 +28,11 @@ const model = {
         };
         return data.filter((p, index)=> index < q);
     },
+    filterByCat: (cat) => {
+        let products = model.all();
+        let filtered = products.filter(p => p.category == cat);
+        return filtered
+    },
     generate: (data,file) => {
         let oldData = model.read();
         let newObj = {

@@ -15,26 +15,25 @@ module.exports = {
         console.log(req.file);
         model.write(product);
         return res.redirect("/products");
-    },
+    },/*
     all: (req, res) => {
         let data = {
             style: "productList",
             title: "Listado de productos",
             products: model.all(),
-            category: req.params.category ? req.params.category : "Todos"
+            category: req.params.category ? req.params.category : "Todos" 
         };
         res.render("products/list", { data });
-    },
+    },*/
     category: (req, res) => {
         let products = model.all();
-        products = products.filter(p => p.category == req.params.category);
         let data = {
             style: "productList",
             title: "Listado de productos",
-            products: products,
+            products: req.params.category ? model.filterByCat(req.params.category) : products,
             category: req.params.category ? req.params.category : "Todos"
         };
-        res.render("products/list", { data });
+        return res.render("products/list", { data });
     },
     show: (req, res) => {
         let products = model.all();

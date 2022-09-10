@@ -21,6 +21,10 @@ app.set ('views', resolve(__dirname, 'views'));
 app.set("view engine", "ejs");
 
 
+// Requerimos el archivo de rutas principales
+const indexRoutes = require('./routes/indexRoutes');
+// y lo usamos
+app.use(indexRoutes);
 
 // Lo mismo con el archivo de rutas de productos
 const productRoutes = require('./routes/productRoutes');
@@ -35,7 +39,4 @@ app.use(userRoutes);
 const oldRoutes = require('./routes/oldRoutes');
 app.use("/old",oldRoutes);
 
-// Requerimos el archivo de rutas principales
-const indexRoutes = require('./routes/indexRoutes');
-// y lo usamos
-app.use(indexRoutes);
+app.use(require("./middlewares/errorHandler"))

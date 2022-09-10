@@ -8,6 +8,4 @@ const mainController = require('../controllers/mainController');
 app.get('/', mainController.index) // Ruta raíz de nuestro sitio, que ejecutará lo que haya en el método index del controlador
 app.get('/cart', mainController.cart) // Ruta "/cart" para el navegador (Contiene el login y el registro)
 
-app.get('/:route?', mainController.error)
-
 module.exports = app; // Exportamos la constante donde guardamos la ejecución del método Router
