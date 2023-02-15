@@ -1,0 +1,158 @@
+body {
+    background-color: #d2d3cb;
+}
+
+main {
+    /* padding-top: 10px; */
+    overflow-y: auto;
+}
+
+#small-dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+#medium-dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: space-around;
+    text-align: center;
+    position: relative;
+    height: 80vh;
+    /*overflow: auto;*/
+    /*overflow-y: scroll;*/
+}
+
+.medium-dashboard-column .MuiPaper-root {
+    margin-bottom: 20px;
+}
+
+.medium-dashboard-column {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+ li {
+    list-style-type: none;
+ }
+
+ svg {
+    margin-right: 20px;
+ }
+
+
+ .main-link {
+     color: black;
+     width: 100%;
+ }
+
+ .main-top {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     padding-top: 20px;  
+ }
+ .main-top h1 {
+     align-self: center;
+     padding-bottom: 50px;
+ }
+
+ .k-grid-content{
+    /*  overflow-y: auto; */
+ }
+
+ div.sales-pies {
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     margin: 20px 0px;
+ }
+
+ svg text {
+     max-width: 3px;
+ }
+
+ .error-main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+ }
+
+ .error-main h1 {
+     font-size: 40px;
+     text-align: center;
+ }
+ .error-main h3 {
+    font-size: 25px;
+    font-weight:500;
+    text-align: center;
+ }
+
+ /* ================================================================= */
+ @keyframes sombreado {
+    0% { box-shadow: 2px 2px 5px rgba(38, 38, 38, 0.7); }
+    100% { box-shadow: 0px 0px 0px; }
+}
+.small-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    margin: 10px 0;
+    border: solid 2px #383838;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px rgba(38, 38, 38, 0.7);
+    font-size: 18px;
+}
+
+.small-section:hover {
+    animation-name: sombreado;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+.small-section svg {
+    padding: 10px;
+    border-right: solid 1px #383838;
+}
+
+
+ /* Products */
+ #product-small {
+    background-color: #ff4f4f;
+}
+
+
+ /* Categories */
+ #categories-small {
+    background-color: #ffe54f;
+}
+
+/* Orders */
+#sales-small {
+    background-color: #ff954f;
+}
+
+ /* Users */
+ #users-small {
+    background-color: #ff4fad;
+}
+
+@media screen and (min-width: 768px) {
+    .small-section {
+        width: 20%;
+    }
+}

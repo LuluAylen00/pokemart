@@ -1,0 +1,12 @@
+{
+  "data": [
+    "('Miel',4,'1667153722185-honey.png',100,'Su delicioso aroma atrae a Pokémon salvajes si se usa en zonas de hierba alta, cuevas o árboles especiales.',4)",
+    "('Poke Muñeco',4,'1667153828977-pokedoll.png',1000,'Un muñeco que atrae a los Pokémon. Es útil para huír de un combate contra un Pokémon salvaje.',1)",
+    "('Mas PS',1,'1667153912689-hpup.png',9800,'Nutritiva bebida que potencia los PS de base de un Pokémon.',1)",
+    "('Ataque X',3,'1667154005298-xattack.png',500,'Aumenta el Ataque en combate. Al intercambiar de Pokémon, el efecto desaparece.',1)",
+    "('Defensa X',3,'1667154066622-xdefense.png',550,'Aumenta la Defensa en combate. Al intercambiar de Pokémon, el efecto desaparece.',1)",
+    "('Directo',3,'1667154181021-direhit.png',650,'Aumenta el índice de golpe crítico en combate. Al cambiar de Pokémon, el efecto desaparece.',1)",
+    "('Agua Fresca',1,'1667154364399-freshwater.png',200,'Agua mineral que restaura 50 PS',1)",
+    "('Cura Total',1,'1667154416028-fullheal.png',600,'Cura cualquier problema de estado',1)"
+  ]
+}

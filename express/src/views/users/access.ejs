@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        <article id="main-box">
+            <input type="radio" name="signin" id="signin-back">
+            <input type="radio" name="signup" id="signup-back">
+            <input type="radio" name="signin" id="signin" <%= errors && errors.login ? "checked" : ""%>>
+            <input type="radio" name="signup" id="signup" <%= errors && errors.register ? "checked" : ""%>>
+            <label for="signin" id="signin-label">
+                Ya tienes una cuenta?
+            </label>
+            <label for="signup" id="signup-label">
+                Aún no formas parte?
+            </label>
+            <label for="signup-back" id="tengo-cuenta" class="back-buttons"><i class="fa-solid fa-caret-left"></i> Volver</label>
+            <label for="signin-back" id="no-cuenta" class="back-buttons">Volver <i class="fa-solid fa-caret-right"></i></label>
+            <section id="box">
+                <form action="/access" method="post" id="login-form">
+                    <h4>Ingreso</h4>
+                    <fieldset>
+                        <input type="email" name="email" id="login-email" placeholder="Correo electrónico" value="<%= (errors && errors.login) && ( errors.values && errors.values.email) ? errors.values.email : '' %>">
+                        <div id="error-login-email-f"></div>
+                        <% if (errors && errors.login && errors.login.fields.email) { %>
+                            <div id="error-login-email">
+                                <p><%= errors.login.fields.email.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="password" name="password" id="login-password" placeholder="Contraseña">
+                        <div id="error-login-password-f"></div>
+                        <% if (errors && errors.login && errors.login.fields.password) { %>
+                            <div id="error-login-password">
+                                <p><%= errors.login.fields.password.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset id="remember">
+                        <input type="checkbox" name="remember" value="1">
+                        <p>Recordarme</p>
+                    </fieldset>
+                    <section class="button-box"><button>Entrar</button></section>
+                </form>
+                <form action="/register" method="post" id="register-form">
+                    <h4>Registro</h4>
+                    <fieldset>
+                        <input type="text" name="username" id="username" placeholder="Nombre de Usuario" value="<%= (errors && errors.register) && ( errors.register.values && errors.register.values.username) ? errors.register.values.username : '' %>">
+                        <div id="error-register-username-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.username) { %>
+                            <div id="error-register-username">
+                                <p><%= errors.register.fields.username.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="email" name="email" id="email" placeholder="Correo" value="<%= (errors && errors.register) && ( errors.register.values && errors.register.values.email) ? errors.register.values.email : '' %>">
+                        <div id="error-register-email-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.email) { %>
+                            <div id="error-register-email">
+                                <p><%= errors.register.fields.email.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="email" name="emailConf" id="emailConf" placeholder="Repite tu Correo" value="<%= (errors && errors.register) && ( errors.register.values && errors.register.values.emailConf) ? errors.register.values.emailConf : '' %>">
+                        <div id="error-register-emailConf-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.emailConf) { %>
+                            <div id="error-register-emailConf">
+                                <p><%= errors.register.fields.emailConf.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="password" name="password" id="password" placeholder="Contraseña">
+                        <div id="error-register-password-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.password) { %>
+                            <div id="error-register-password">
+                                <p><%= errors.register.fields.password.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirma la Contraseña">
+                        <div id="error-register-passwordConf-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.passwordConf) { %>
+                            <div id="error-register-passwordConf">
+                                <p><%= errors.register.fields.passwordConf.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <select name="region" id="region-select" onchange="check()">
+                            <option value="">Región</option>
+                            <% for( let i = 0; i < data.regions.length; i++ ) { %>
+                                <% let region = data.regions[i]; %>
+                                <option value="<%= region.id %>" <%= (errors && errors.register) && ( errors.register.values && errors.register.values.region && errors.register.values.region == region.id) ? "selected" : '' %>><%= region.name %></option>
+                            <% } %>
+                        </select>
+                        <div id="error-register-region-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.region) { %>
+                            <div id="error-register-region">
+                                <p><%= errors.register.fields.region.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <select name="city" id="city-select" disabled onchange="checkCity()">
+                            <option value="">Ciudad</option>
+                            <% for( let i = 0; i < data.cities.length; i++ ) { %>
+                                <% let city = data.cities[i]; %>
+                                <option class="options citiesFrom<%= city.regionId %>" value="<%= city.id %>" disabled <%= (errors && errors.register) && ( errors.register.values && errors.register.values.city && errors.register.values.city == city.id) ? "selected" : '' %>><%= city.name %></option>
+                            <% } %>
+                        </select>
+                        <div id="error-register-city-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.city) { %>
+                            <div id="error-register-city">
+                                <p><%= errors.register.fields.city.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <h6>Elige tu avatar</h6>
+                        <ul id="avatar-selector">
+                            <% for( let i = 0; i < 10; i++ ) { %>
+                                <% let avatar = data.avatars[i]; %> 
+                                <li class="avatar-item">
+                                    <input type="radio" name="avatar" id="avatar<%= avatar.id %>" value="<%= avatar.id %>" <%= (errors && errors.register) && ( errors.register.values && errors.register.values.avatar && errors.register.values.avatar == avatar.id) ? "checked" : '' %>>
+                                    <label for="avatar<%= avatar.id %>" class="avatar">
+                                        <img src="/img/avatar/trainer<%= avatar.id %>.png" alt="avatar<%= avatar.id %>" class="avatar-img">
+                                    </label>
+                                </li>
+                            <% } %>
+                        </ul>
+                        <div id="error-register-avatar-f"></div>
+                        <% if (errors && errors.register && errors.register.fields.avatar) { %>
+                            <div id="error-register-avatar">
+                                <p><%= errors.register.fields.avatar.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <section class="button-sect">
+                        <button>Registrarse</button>
+                        <button type="reset">Limpiar</button>
+                    </section>
+                </form>
+            </section>
+        </article>
+        <script src="/js/region.js"></script>
+        <script src="/js/validations/login.js"></script>
+        <script src="/js/validations/register.js"></script>
+        <% if (errors && errors.register) { %>
+            <script>
+                document.querySelector("#main-box").addEventListener("mouseover", (e) => {
+                    check();
+                })
+            </script>
+        <% } %>
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

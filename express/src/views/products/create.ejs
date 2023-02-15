@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        <article id="main-box">
+            <section id="box">
+                <form action="/products/save" method="post" id="create-product-form" enctype="multipart/form-data">
+                    <h4>Añadir un nuevo producto</h4>
+                    <fieldset>
+                        <input type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= errors ? errors.values.name : ""  %>">
+                        <% if (errors && errors.fields.name) { %>
+                            <div class="error" id="error-name">
+                                <p><%= errors.fields.name.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <textarea name="description" id="description" cols="30" rows="6" style="resize: none;" placeholder="Descripción"><%= errors ? errors.values.description : "" %></textarea>
+                        <% if (errors && errors.fields.description) { %>
+                            <div class="error" id="error-description">
+                                <p><%= errors.fields.description.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <input type="number" name="price" id="price" placeholder="Valor" value="<%= errors ? errors.values.price : ""  %>">
+                        <% if (errors && errors.fields.price) { %>
+                            <div class="error" id="error-price">
+                                <p><%= errors.fields.price.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <h3 class="select-label">Categoría</h3>
+                        <select name="category" id="category">
+                            <option value=""></option>
+                            <% console.log(errors); %> 
+                            <% if (data.cats) { %>
+                                <% for( let i = 0; i < data.cats.length; i++ ) { %>
+                                    <option value="<%= data.cats[i].id %>" <%= errors && data.cats[i].name == errors.values.category ? "selected" : "" %>><%= data.cats[i].name %></option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                        <% if (errors && errors.fields.category) { %>
+                            <div class="error" id="error-category">
+                                <p><%= errors.fields.category.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <h3 class="select-label">Generación</h3>
+                        <select name="gen" id="gen">
+                            <option value=""></option>
+                            <% if (data.gens) { %>
+                                <% for( let i = 0; i < data.gens.length; i++ ) { %>
+                                    <option value="<%= data.gens[i].id %>" <%= errors && data.gens[i].id == errors.values.gen ? "selected" : "" %>><%= data.gens[i].id %> - <%= data.gens[i].games %></option>
+                                <% } %>
+                            <% } %>
+                        </select>
+                        <% if (errors && errors.fields.gen) { %>
+                            <div class="error" id="error-gen">
+                                <p><%= errors.fields.gen.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <h3 class="select-label">Imagen</h3>
+                        <input type="file" name="image" id="image">
+                        <% if (errors && errors.fields.image) { %>
+                            <div class="error" id="error-image">
+                                <p><%= errors.fields.image.msg %></p>
+                            </div>
+                        <% } %>
+                    </fieldset>
+                    <section class="button-sect">
+                        <button type="submit">Enviar</button>
+                        <button type="reset">Limpiar</button>
+                    </section>
+                </form>
+            </section>
+        </article>
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

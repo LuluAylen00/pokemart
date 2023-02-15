@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        <article id="main-box">
+            <section id="box">
+                <form action="/products/update/<%= data.product.id %>?m=PUT" method="post" id="create-product-form" enctype="multipart/form-data">
+                    <h4>Editar un producto</h4>
+                    <input type="hidden" name="id" value="<%= data.product.id %>">
+                    <input type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= data.product.name %>"> 
+                    <textarea name="description" id="description" cols="30" rows="6" style="resize: none;" placeholder="Descripción" value="<%= data.product.description %>"></textarea>
+                    <input type="number" name="price" id="price" placeholder="Valor" value="<%= data.product.price %>">
+                    <h3 class="select-label">Categoría</h3>
+                    <select name="category" id="category">
+                        <% for( let i = 0; i < data.cats.length; i++ ) { %>
+                            <option value="<%= data.cats[i].id %>" <%= data.product.categoryId == data.cats[i].id ? "selected" : "" %>><%= data.cats[i].name %></option>
+                        <% } %>
+                    </select>
+                    <h3 class="select-label">Generación</h3>
+                    <select name="gen" id="gen">
+                        <% for( let i = 0; i < data.gens.length; i++ ) { %>
+                            <option value="<%= data.gens[i].id %>" <%= data.product.genId == data.gens[i].id ? "selected" : "" %>><%= data.gens[i].id %> - <%= data.gens[i].games %></option>
+                        <% } %>
+                    </select>
+                    <h3 class="select-label">Imagen</h3>
+                    <input type="file" name="image" id="image">
+                    <section class="button-sect">
+                        <button type="submit">Enviar</button>
+                        <button type="reset">Limpiar</button>
+                    </section>
+                </form>
+            </section>
+        </article>
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

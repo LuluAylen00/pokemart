@@ -1,0 +1,185 @@
+@import url("./partials/header.css");
+@import url("./partials/footer.css");
+
+select option[disabled] {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+}
+header, footer, main {width: 100%;}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h2#main-head {
+    font-size: 30px;
+    padding: 0.3em;
+}
+
+main div#main-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.main-sections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h4-title {
+    font-size: 26px;
+    padding: 0.3em;
+}
+
+#trainer-card {
+    box-shadow: 2px 2px 5px #000;
+    border-radius: 17px;
+}
+
+#personal-data {
+    height: 100%;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#personal-data form {
+    display: flex;
+    flex-direction: row;
+}
+
+#personal-data fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+#personal-data fieldset span {
+    border: 0;
+    /*display: flex;*/
+    flex-direction: row;
+}
+
+#personal-data fieldset h6 {
+    font-size: 20px;
+    padding: 0.1em;
+}
+
+#info-avatar {
+    height: 60px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:not(:checked) ~ span.hide-span {
+    display: none;
+}
+input[type="radio"]:not(:checked) ~ input, input[type="radio"]:not(:checked) ~ select {
+    display: none;
+}
+input[type="radio"]:checked ~ span.hide-span {
+    display: flex;
+}
+input[type="radio"]:checked ~ label.show-input, input[type="radio"]:checked ~ p {
+    display: none;
+}
+
+
+
+fieldset#special-fieldset {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+main {
+    position: relative;
+}
+
+div#black-bg {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 33, 38, 0.5);
+}
+
+section#avatar-selector-profile {
+    opacity: 0;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    background-color: var(--celeste);
+    width: 80vw;
+    height: 40vw;
+    margin: 15% 0;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid var(--azul);
+    border-radius: 5%;
+    box-shadow: 1px 1px 2px var(--azul);
+}
+
+section#avatar-selector-profile form {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#avatar-selector-profile ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 90%;
+    width: 95%;
+}
+
+section#avatar-selector-profile ul img {
+    width: 100px;
+}
+
+input[type="radio"]#show-avatar-selector:checked ~ section {
+    display: flex;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+input[type="radio"]#show-avatar-selector:checked ~ div#black-bg {
+    display: flex;
+}
+
+.avatar-item input[type="radio"]:checked + label.avatar > img {
+    height: 100%;
+    background-color: #0892A2;
+    border: 1px solid #030303;
+}
+
+#avatar-selector-profile span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+}

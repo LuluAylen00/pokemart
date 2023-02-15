@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: "pokeDs";
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(230, 230, 230);
+}
+
+a:-webkit-any-link {
+    color: inherit;
+}
+
+:root {
+    --celeste: #38CDD8;
+    --azul: #0892A2;
+    --celesteplus: rgb(12, 176, 194);
+    --blanco: snow;
+  }
+
+@font-face {
+    font-family: "pokeGb";
+    src: url("../fonts/customfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "pokeDs";
+    src: url("../fonts/pokemon-ds-font.ttf") format("truetype");
+}
+
+a:visited {
+    color: inherit;
+}
+
+audio#ambient {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+}
+
+audio#ambient::-webkit-media-controls-panel {
+    background-color: var(--azul);
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.blue-border {
+    border: 25px solid transparent;
+    border-image: url(../img/border-blue.png) 30 round;
+    background-image: linear-gradient(to bottom, #f8f8f8 0%, #f8f8f8 100%), linear-gradient(to bottom, #f8f8f8 0%, #f8f8f8 100%);
+    background-clip: content-box, padding-box;
+}
+
+.black-border {
+    border: 25px solid transparent;
+    border-image: url(../img/border.png) 30 round;
+}
+
+audio#ambient::-webkit-media-controls-mute-button, audio#ambient::-webkit-media-controls-volume-slider-container, audio#ambient::-webkit-media-controls-volume-slider {display: none;}
+audio#ambient::-webkit-media-controls-timeline-container,audio#ambient::-webkit-media-controls-current-time-display,audio#ambient::-webkit-media-controls-time-remaining-display,audio#ambient::-webkit-media-controls-timeline,audio#ambient::-webkit-media-controls-seek-back-button,audio#ambient::-webkit-media-controls-seek-forward-button,audio#ambient::-webkit-media-controls-fullscreen-button,audio#ambient::-webkit-media-controls-rewind-button,audio#ambient::-webkit-media-controls-return-to-realtime-button,audio#ambient::-webkit-media-controls-toggle-closed-captions-button {display: none;}
+
+@media screen and (min-width: 768px) {
+    audio#ambient::-webkit-media-controls-volume-slider-container, audio#ambient::-webkit-media-controls-volume-slider {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    audio#ambient {
+        width: 130px;
+    }
+    audio#ambient::-webkit-media-controls-mute-button, audio#ambient::-webkit-media-controls-volume-slider-container, audio#ambient::-webkit-media-controls-volume-slider {
+        display: flex;
+    }
+}

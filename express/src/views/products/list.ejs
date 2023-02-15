@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        <div id="filter-box" class="blue-border">
+            <fieldset id="search-fieldset">
+                <input type="search" id="search" autocomplete="off" placeholder="Busco...">
+                <div id="search-div">
+                    <div id="search-div-container">
+                        <section id="search-cat-sect">
+                            <h3 id="search-cat-title">Categorías</h3>
+                            <div id="search-cat-div"></div>
+                        </section>
+                        <section id="search-prod-sect">
+                            <h3 id="search-prod-title">Productos</h3>
+                            <div id="search-prod-div"></div>
+                        </section>
+                        <section id="search-related-sect">
+                            <h3 id="search-related-title">Relacionados</h3>
+                            <div id="search-related-div"></div>
+                        </section>
+                    </div>
+                </div>
+            </fieldset>
+            <script src="/js/search.js"></script>
+            <h2><%= data.category %></h2>
+            <ul>
+                <li>
+                    <a href="/products">
+                        <i class="fi fi-sr-play hidden"></i>
+                        <i class="fi fi-br-play <%= data.category == "Todos" ? "actual selected" : "not-selected" %>"></i>
+                        <p>Todos los productos</p>
+                    </a>
+                </li>
+                <% for( let i = 0; i < data.catList.length; i++ ) { %>
+                    <li>
+                        <a href="/products/<%= data.catList[i].category.name %>/<%= data.catList[i].name %>">
+                            <i class="fi fi-sr-play hidden"></i>
+                            <i class="fi fi-br-play <%= data.category == data.catList[i].category.name ? "actual selected" : data.category == data.catList[i].name ? "actual selected" : "not-selected" %>"></i>
+                            <p><%= data.catList[i].name %></p>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>  
+        <section id="box">
+            <h2>Listado de productos</h2>
+            <ul id="article-box">
+                <% if (data.products) { %>
+                    <% for( let i = 0; i < data.products.length; i++ ) { %>
+                        <% let product = data.products[i]; %>
+                        <li class="related-li">
+                            <a href="/product/detail/<%= product.id %>">
+                                <picture class="prod-picture"><img class="prod-img" src="/img/items/<%= product.picture %>" alt="<%= product.picture %>"></picture>
+                                <article>
+                                    <h4><%= product.name %></h4>
+                                    <h5>$<%= product.price %> c/u</h5>
+                                </article>
+                            </a>
+                        </li>
+                    <% } %>
+                <% } else { %>
+                    <li>
+                        <h3>No hay productos</h3>
+                    </li>
+                <% } %> 
+            </ul>
+        </section>
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

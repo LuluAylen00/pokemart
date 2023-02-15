@@ -1,0 +1,28 @@
+<footer>
+    <input type="radio" name="chat" id="chatOn">
+    <input type="radio" name="chat" id="chatOff" checked>
+    <div id="float-div">
+        <label id="chat-opener" for="chatOn"><i class="fa-regular fa-comments"></i></label>
+        <section id="chat-main">
+            <span id="people-connected"><em id="total-connected"></em><i class="fa-solid fa-users"></i></span>
+            <label for="chatOff"><i class="fa-solid fa-x"></i></label>
+            <div id="messages"></div>
+            <form id="chat-input" onsubmit="addMessage(); return false">
+                <input type="hidden" name="id" id="chat-id" value="<%= locals.user ? locals.user.id : 1 %>">
+                <input type="hidden" name="avatar" id="avatar-chat" value="<%= locals.user ? locals.user.avatar.filename : "default.png" %>">
+                <input type="hidden" id="username" placeholder="Tu Nombre" value="<%= locals.user ? locals.user.username : "Invitado" %>"/>
+                <input type="text" id="texto" placeholder="Escribe al mundo..." autocomplete="off" />
+                <i class="fa-solid fa-paper-plane" onclick="addMessage()"></i>
+            </form>
+        </section>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+    <nav>
+        <a href="#">Preguntas Frecuentes</a>
+        <a href="#">Contacto</a>
+        <a href="#">Terminos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+    </nav>
+    <p>Página creada por Aylen Martinez</p>
+</footer>

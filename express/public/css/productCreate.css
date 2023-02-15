@@ -1,0 +1,162 @@
+@import url("./partials/header.css");
+@import url("./partials/footer.css");
+
+main { /* Establezco la base para el main */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: snow;
+}
+
+/* Estilos básicos para la caja principal */
+article#main-box, article > #box {
+    width: 70vw;
+    display: flex;
+    height: auto;
+    min-height: 50vh;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #38CDD8;
+    position: relative;
+    box-shadow: 2px 2px 2px #030303;
+}
+
+/* Estilos básicos para las cajas contenedoras de login y registro */
+#login-form, #create-product-form {
+    min-width: 20%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#create-product-form {top: 1rem;}
+
+/* Estilos para el selector de avatar, en el apartado de registro */
+#create-product-form #avatar-selector {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Mas estilos para cada avatar */
+#create-product-form #avatar-selector li {
+    width: 20%;
+}
+#create-product-form #avatar-selector li img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+/* Estilos para los formularios */
+#login-form, #create-product-form{
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+    color: snow;
+    padding: 20px 0;
+}
+
+/* Tamaño de fuente para los títulos principales (Ingreso/Registro) */
+#login-form h4, #create-product-form h4 {
+    font-size: 2rem
+}
+
+/* Estilos para el subtitulo (Elige tu avatar) */
+#create-product-form h6 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+/* Formato para los inputs de ambos formularios */
+#create-product-form input[type="text"], #create-product-form input[type="number"], #create-product-form textarea {
+    margin: 10px 0;
+    padding: 5px;
+    width: 60%;
+    font-size: 0.8rem;
+    font-family: "pokeGb"; /* <---- Segunda fuente */
+}
+
+fieldset {
+    width: 100%;
+    border: none;
+}
+
+fieldset div.error {
+    background-color: rgb(246, 49, 49);
+    color: snow;
+}
+
+.select-label {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 10px;
+}
+
+#create-product-form select {
+    width: 30%;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+/* Estilos para la sección de botones del formulario de registro */
+.button-sect {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+}
+#login-form button, .button-sect button {
+    padding: 10px;
+    font-size: 1.4rem;
+    font-family: "pokeDs";
+}
+.button-sect button[type="reset"]{
+    background-color: #0892A2;
+    border: none;
+    color: inherit;
+}
+
+/* Ligeras modificaciones para el tamaño tablet */
+@media screen and (min-width: 768px) {
+    /*article > #box {
+        animation: height50to90 1.5s ease forwards;
+    }*/
+    
+}
+
+@media screen and (min-width: 1024px) {
+    /*article > #box {
+        animation: height50to100 1.5s ease forwards;
+    }*/
+    #create-product-form #avatar-selector li img {
+        width: 70%;
+        border-radius: 10%;
+    }
+    #login-form input, #create-product-form input {
+        font-size: 1rem;
+    }
+    .button-sect button {
+        margin: 5px;
+    }
+    .back-buttons {
+        padding: 10px;
+        max-height: 2.6rem;
+        font-size: 1.2rem;
+    }
+    #signin-label, #signup-label {
+        top: 35%;
+    }
+}

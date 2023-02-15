@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head", {data}) %>
+<body>
+    <audio src="/sound/a-button.mp3" autoplay="true"></audio>
+    <%- include("./partials/header") %> 
+    <main>
+        <section id="main-banner">
+            <h2>Bienvenido al PokeMart!</h2>
+            <img src="/img/indexbanner2.png" alt="">
+        </section>
+        <ul>
+            <li id="st-banner" class="main-cats cats-row banner">
+                <section id="st-left" class="banner-text">
+                    <h1>¿Necesitas restaurar tu equipo?</h1>
+                    <p>Busca los artículos que necesites en el Botiquín!</p>
+                    <a href="/products/Botiquín"><button>Botiquín</button></a>
+                </section>
+                <picture id="st-right" class="banner-img">
+                    <img src="/img/potions.png" alt="">
+                </picture>
+            </li>
+            <li id="nd-banner" class="banner main-cats cats-reverse">
+                <picture id="nd-left" class="banner-img">
+                    <img src="/img/balls.png" alt="">
+                </picture>
+                <section id="nd-right" class="banner-text">
+                    <h1>¿Buscas ampliar tu colección?</h1>
+                    <p>Visita la sección Captura!</p>
+                    <a href="/products/Captura"><button>Captura</button></a>
+                </section>
+            </li>
+            <li id="rd-banner" class="banner main-cats cats-row">
+                <section id="rd-left" class="banner-text">
+                    <h1>Repelentes, piedras evolutivas y demás cosas..</h1>
+                    <p>Todo en la sección Objetos!</p>
+                    <a href="/products/Mochila"><button>Objetos</button></a>
+                </section>
+                <picture id="rd-right" class="banner-img">
+                    <img src="/img/stones.png" alt="">
+                </picture>
+            </li>
+        </ul>
+    </main>
+    <%- include("./partials/footer") %> 
+</body>
+</html>

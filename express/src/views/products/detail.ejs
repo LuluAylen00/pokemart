@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        
+        <section id="main-box">
+            <picture><img src="/img/items/<%= data.thisOne.picture %>" alt=""></picture>
+            <article id="product-box">
+                <h2 id="product-title"><%= data.thisOne.name %></h2>
+                <h4 id="product-category">Categoría: <i><%= data.thisOne.category.name %></i></h4>
+                <p id="product-description"><%= data.thisOne.description %></p>
+                <h3 id="product-price">$<%= data.thisOne.price %> <i>c/u</i></h3>
+                <input type="radio" name="buy" id="buy">
+                <input type="radio" name="buy" id="cancel-buy">
+                <label class="buy-button" id="mobile-buy-button" onclick="check()" for="buy">Comprar</label>
+                <label class="buy-button" id="tablet-buy-button" onclick="check()" for="buy">Comprar <i class="fa-solid fa-shopping-cart"></i></label>
+                <label class="buy-button" id="desktop-buy-button" onclick="check()" for="buy">Añadir al carrito <i class="fa-solid fa-shopping-cart"></i></label>
+                <section id="post-buy">
+                    <input type="hidden" id="idInput" name="id" value="<%= data.thisOne.id %>">
+                    <p>Cuantas unidades quieres?</p>
+                    <ul>
+                        <input type="hidden" id="qInput">
+                        <li class="quantity-mod" onclick="restar()">-</li>
+                        <li class="quantity" id="quantityStatus">1</li>
+                        <li class="quantity-mod" onclick="sumar()">+</li>
+                        <script>
+                            
+                        </script>
+                    </ul>
+                    <script>
+                        let id = document.getElementById("idInput").value
+                        console.log("id",id);
+                    </script>
+                    <button id="addToCart" onclick="addItem(document.getElementById('idInput').value, q)">Comprar</button>
+                    <label for="cancel-buy" onclick="removeItem(document.getElementById('idInput').value)">Cancelar</label>
+                </section>
+                <div>
+                    <a href="/products/edit/<%= data.thisOne.id %>">Editar</a>
+                    <form action="/products/erase/<%= data.thisOne.id %>?m=DELETE" method="POST"><button type="submit">Eliminar</button></form>
+                </div>
+            </article>
+        </section>
+        <section id="article-box">
+            <h2>Productos relacionados</h2>
+            <ul id="related-ul">
+                <% for( let i = 0; i < data.products.length; i++ ) { %>
+                    <li class="related-li">
+                        <a href="/products/detail/<%= data.products[i].id %>">
+                            <img src="/img/items/<%= data.products[i].picture %>" alt="Superball">
+                            <article>
+                                <h4><%= data.products[i].name %></h4>
+                                <h5>$<%= data.products[i].price %></h5>
+                            </article>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+        <script src="/js/detailCart.js"></script>
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

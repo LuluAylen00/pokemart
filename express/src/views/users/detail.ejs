@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", data) %> 
+<body>
+    <%- include("../partials/header") %> 
+    <main>
+        <input type="radio" name="show-avatar" id="show-avatar-selector">
+        <input type="radio" name="show-avatar" id="hide-avatar-selector">
+        <div id="black-bg"></div>
+        <section id="avatar-selector-profile">
+            <span>
+                <h2>Selecciona un avatar nuevo</h2>
+                <label for="hide-avatar-selector"><i class="fa-solid fa-x"></i></label>
+            </span>
+            <form action="/updateAvatar?m=PATCH" method="post">
+                <input type="hidden" name="id" id="id" value="<%= data.trainer.id %>">
+                <ul>
+                    <% for( let i = 0; i < data.avatars.length; i++ ) { %>
+                        <li class="avatar-item">
+                            <input type="radio" name="avatar" value="<%= data.avatars[i].id %>" id="avatar<%= data.avatars[i].id %>" <%= data.trainer.avatarId == data.avatars[i].id ? "checked" : "" %>>
+                            <label for="avatar<%= data.avatars[i].id %>" class="avatar">
+                                <img src="/img/avatar/trainer<%= data.avatars[i].id %>.png" alt="avatar<%= data.avatars[i].id %>" class="avatar-img">
+                            </label>
+                        </li>
+                    <% } %>
+                </ul>
+                <button type="submit">Actualizar</button>
+            </form>
+        </section>
+        <h2 id="main-head">Perfil de usuario</h2>
+        <% if (data.trainer) { %>
+            <div id="main-div">
+                <section class="main-sections">
+                    <h4 class="h4-title">Tarjeta de entrenador</h4>
+                    <div id="trainer-card-div"></div>
+                </section>
+                <section class="main-sections">
+                    <h4 class="h4-title">Datos personales</h4>
+                    <section id="personal-data" class="blue-border">
+                        <fieldset>
+                            <h6>Dirección de correo electrónico</h6>
+                            <p><%= data.trainer.email %></p>
+                        </fieldset>
+                        <fieldset>
+                            <h6>Nombre de usuario</h6>
+                            <form method="post" action="/updateName/<%= data.trainer.id %>?m=PATCH">
+                                <input type="radio" name="hide-username" id="hide-username">
+                                <p><%= data.trainer.username %></p>
+                                <input type="text" name="username" value="<%= data.trainer.username %>">
+                                <label class="show-input" for="hide-username"><i class="fa-solid fa-pen"></i></label>
+                                <span class="hide-span">
+                                    <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                    <input type="radio" name="hide-username" id="show-username" checked>
+                                    <label for="show-username"><i class="fa-solid fa-x"></i></label>
+                                </span>
+                            </form>
+                        </fieldset>
+                        <fieldset>
+                            <h6>Ciudad y región</h6>
+                            <form method="post" action="/updateCity/<%= data.trainer.id %>?m=PATCH">
+                                <input type="radio" name="hide-city" id="hide-city">
+                                <select name="region" id="region-select" onchange="check()">
+                                    <option value="">Región</option>
+                                    <% let acc = {} %> 
+                                    <% for( let i = 0; i < data.regions.length; i++ ) { %>
+                                        <% let region = data.regions[i]; %>
+                                        <option value="<%= region.id %>" <%= data.trainer.city.region.name == region.name ? "selected" : "" %>><%= region.name %></option>
+                                        <% if (data.trainer.city.region.name == region.name) { %>
+                                            <% acc.region = region.name %> 
+                                        <% } %>
+                                    <% } %>
+                                </select>
+                                <select name="city" id="city-select" onchange="checkCity()">
+                                    <option value="">Ciudad</option>
+                                    <% for( let i = 0; i < data.cities.length; i++ ) { %>
+                                        <% let city = data.cities[i]; %>
+                                        <option class="options citiesFrom<%= city.regionId %>" value="<%= city.id %>" <%= data.trainer.city.name == city.name ? "selected" : "" %> disabled><%= city.name %></option>
+                                        <% if (data.trainer.city.name == city.name) { %>
+                                            <% acc.city = city.name %> 
+                                        <% } %>
+                                    <% } %>
+                                </select>
+                                <p><%= `${acc.city}, ${acc.region}` %></p>
+                                <label class="show-input" for="hide-city"><i class="fa-solid fa-pen"></i></label>
+                                <span class="hide-span">
+                                    <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                    <input type="radio" name="hide-city" id="show-city" checked>
+                                    <label for="show-city"><i class="fa-solid fa-x"></i></label>
+                                </span>
+                            </form>
+                        </fieldset>
+                        <fieldset>
+                            <h6>Avatar</h6>
+                            <form method="post" action="/updateAvatar/<%= data.trainer.id %>?m=PATCH">
+                                <img id="info-avatar" src="/img/avatar/<%= data.trainer.avatar.filename %>" alt="">
+                                <input type="radio" name="hide-avatar" id="hide-avatar">
+                                <label for="show-avatar-selector"><i class="fa-solid fa-pen"></i></label>
+                            </form>
+                        </fieldset>
+                        <fieldset>
+                            <h6>Dinero</h6>
+                            <h4>$<%= data.trainer.money %></h4>
+                            <form method="post" action="/updateMoney/<%= data.trainer.id %>?m=PATCH">
+                                <button disabled="disabled">Conseguir más</button>
+                                <i>(Proximamente)</i>
+                            </form>
+                        </fieldset>
+                        <fieldset id="special-fieldset">
+                            <button disabled="disabled">
+                                <p>Inventario</p>
+                                <i>(Proximamente)</i>
+                            </button>
+                            <button disabled="disabled">
+                                <p>Historial de compras</p>
+                                <i>(Proximamente)</i>
+                            </button>
+                        </fieldset>
+                        <fieldset id="last-one"></fieldset>
+                        <form action="/logout" method="post" id="logout-form">
+                            <button>Cerrar sesión</button>
+                        </form>
+                    </section>
+                </section>
+            </div>
+            <script>
+                document.getElementById("city-select").addEventListener("mouseover", ()=>{check()})
+    
+                function parseNumber(number, digits) {
+                    let data = String(number);
+                    for (let i = data.length; i < digits; i++) {
+                        data = "0"+ data
+                    };
+                    return data;
+                }
+    
+                let otraData = '<%- JSON.stringify(data.trainer) %>'
+
+                let otraOtraData = JSON.parse(otraData);
+                let data = {
+                    ...otraOtraData,
+                    id: parseNumber("<%= data.trainer.id %>", 5),
+                    avatar: "<%= data.trainer.avatar.filename %>",
+                    city: "<%= data.trainer.city.name %>",
+                    region: "<%= data.trainer.city.region.name %>",
+                }
+            </script>
+            <script src="/js/region.js"></script>
+            <script src="/js/libraries/p5.js"></script>
+            <script src="/js/libraries/p5.dom.js"></script>
+            <script src="/js/sketch.js"></script>
+        <% } else { %>
+            <div>
+                <h2>No se ha encontrado a este entrenador</h2>
+                <a href="/">Volver a la página principal</a>
+            </div>
+        <% } %> 
+    </main>
+    <%- include("../partials/footer") %> 
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head", data) %>
+<body>
+    <audio src="/sound/a-button.mp3" autoplay="true"></audio>
+    <%- include("./partials/header") %> 
+    <main>
+        <div id="cart-cont">
+            <div id="main-box">
+                <section id="main-header">
+                    <h3>Carrito</h3>
+                    <a id="delete-cart" href="#" onclick="removeAll()">Borrar todo</a>
+                    <p id="cart-count"></p>
+                </section>
+                <script src="/js/cart.js"></script>
+                <ul id="main-list">
+                    <!-- <li class="each-prod">
+                        <picture><img src="/img/items/pokeball.png" alt="Pokeball"></picture>
+                        <section>
+                            <h2>Pokeball</h2>
+                            <i>Categoría: Captura</i>
+                            <span>
+                                <input type="checkbox" id="ship-checkbox" name="ship-checkbox">
+                                <label for="ship-checkbox">Envío?</label>
+                            </span>
+                        </section>
+                        <input type="number" id="st-quantity" name="st-quantity" min="1" max="99" value="2" disabled>
+                        <h2>$400</h2>
+                    </li>
+                    -->
+                </ul>
+                
+            </div>
+            <section id="checkout-box">
+                <h3 id="checkout-header">Resumen</h3>
+                <ul id="checkout-list">
+                </ul>
+                <div class="separator"></div>
+                <section id="checkout-final">
+                    <ul id="final-list">
+                        <li><h4 class="without-ship">Total sin cargos</h4> <h4 class="without-ship" id="pre-final-check">$900</h4></li>
+                        <li><h4 class="ship">Envío</h4> <h4 class="ship" id="pre-final-tax">$225</h4></li>
+                        <li><h3 class="total">Precio final</h3> <h3 class="total" id="final-check">$1125</h3></li>
+                    </ul>
+                    </section>
+                <div class="separator" id="separador"></div>
+                <script>
+                    function submitOrder() {
+                        removeAll();
+                        let form = document.getElementById("formularioMalo")
+                        form.submit();
+                    }
+                </script>
+                <a id="buy-button" onclick="submitOrder()" href="#">Finalizar la compra</a>
+            </section>
+        </div>
+    </main>
+    <%- include("./partials/footer") %> 
+</body>
+</html>

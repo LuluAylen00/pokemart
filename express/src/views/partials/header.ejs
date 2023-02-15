@@ -1,0 +1,44 @@
+<audio src="/sound/a-button.mp3" autoplay="true"></audio>
+    <header>
+        <section id="header-top">
+            <a href="/cart" id="cart-icon">
+                <i class="fa-solid fa-shopping-cart"></i>
+            </a>
+            <a id="main-logo" href="/">
+                <img src="/img/logo.png" alt="Logo">
+            </a>
+            <% if (locals.user) { %>
+                <a href="/profile/" id="login-button">
+                    <i id="user-icon" class="fa-solid fa-user"></i>
+                    <article id="login-laptop">
+                        <i id="user-icon-laptop" class="fa-solid fa-user"></i>
+                        <p>Perfil</p>
+                    </article>
+                </a>
+            <% } else { %>
+                <a href="/access" id="login-button">
+                    <i id="user-icon" class="fa-solid fa-user"></i>
+                    <article id="login-laptop">
+                        <i id="user-icon-laptop" class="fa-solid fa-user"></i>
+                        <p>Ingresar</p>
+                    </article>
+                </a>
+            <% } %>
+        </section>
+        <nav id="header-bot">
+            <% if (locals.user && locals.user.usertypeId > 1) { %>
+                <span id="create-link">
+                    <a href="http://localhost:3000/"><i class="fa-solid fa-chart-line"></i></a>
+                    <a href="/products/create"><i class="fa-solid fa-plus"></i></a>
+                </span>
+            <% } %>
+            <% for( let i = 0; i < locals.categories.length; i++ ) { %>
+                <% let cat = locals.categories[i] %> 
+                <a href="/products/<%= cat.name %>" class="header-link">
+                    <img src="/img/items/<%= cat.icon %>" class="nav-icon">
+                    <p class="nav-title"><%= cat.name %></p>
+                </a>
+            <% } %>
+            <audio id="ambient" src="/sound/pokemon-center.ogg" loop="true" controls controlsList="nodownload noplaybackrate"></audio>
+        </nav>
+    </header>
